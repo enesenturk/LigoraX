@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DisableTransitiveProjectReferences>true</DisableTransitiveProjectReferences>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\basePackages\Base.DataAccess\Base.DataAccess.csproj" />
+    <ProjectReference Include="..\..\..\..\basePackages\Base.Entity\Base.Entity.csproj" />
+    <ProjectReference Include="..\..\..\core\application\configuration\LigoraX.Configuration\LigoraX.Configuration.csproj" />
+    <ProjectReference Include="..\..\..\core\domain\LigoraX.Domain\LigoraX.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DisableTransitiveProjectReferences>true</DisableTransitiveProjectReferences>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AspectCore.Extensions.DependencyInjection" Version="2.4.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="8.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <TreatAsUsed>true</TreatAsUsed>
+    </PackageReference>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.10">
+      <TreatAsUsed>true</TreatAsUsed>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\basePackages\Base.Caching\Base.Caching.csproj" />
+    <ProjectReference Include="..\..\basePackages\Base.Cookie\Base.Cookie.csproj" />
+    <ProjectReference Include="..\..\basePackages\Base.Factory\Base.Factory.csproj" />
+    <ProjectReference Include="..\..\basePackages\Base.Logging\Base.Logging.csproj" />
+    <ProjectReference Include="..\core\application\application\LigoraX.Application.Utilities\LigoraX.Application.Utilities.csproj" />
+    <ProjectReference Include="..\core\application\configuration\LigoraX.Configuration.Registration\LigoraX.Configuration.Registration.csproj" />
+    <ProjectReference Include="..\infrastructure\adapterService\LigoraX.AdapterServices\LigoraX.AdapterServices.csproj" />
+    <ProjectReference Include="..\infrastructure\authorization\LigoraX.AuthorizationServices\LigoraX.AuthorizationServices.csproj" />
+    <ProjectReference Include="..\infrastructure\domainService\LigoraX.DomainServices\LigoraX.DomainServices.csproj" />
+    <ProjectReference Include="..\infrastructure\persistance\LigoraX.Persistence\LigoraX.Persistence.csproj" />
+    <ProjectReference Include="..\infrastructure\repository\LigoraX.Repositories\LigoraX.Repositories.csproj" />
+    <ProjectReference Include="..\presentation\LigoraX.Presentation.Constants\LigoraX.Presentation.Constants.csproj" />
+    <ProjectReference Include="..\presentation\LigoraX.Presentation.Formatters\LigoraX.Presentation.Formatters.csproj" />
+    <ProjectReference Include="..\presentation\LigoraX.Presentation\LigoraX.Presentation.csproj" />
+  </ItemGroup>
+
+</Project>

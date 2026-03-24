@@ -1,0 +1,55 @@
+﻿using Base.Exceptions.ExceptionModels;
+using LigoraX.Domain.EntityProperty.SystemProperties;
+using LigoraX.Domain.Language.Helpers;
+
+namespace LigoraX.Application.Utilities.EntityProperty
+{
+	public class EntityPropertyLanguageMapper
+	{
+
+		public static string GetEntityPropertyUiMessage<T>(int value)
+		{
+			Type entityPropertyType = typeof(T);
+
+			string propertyNamespace = typeof(_AssemblyReference).Namespace;
+
+			if (entityPropertyType.Namespace != propertyNamespace)
+				throw new AbsurdOperationException($"Type {entityPropertyType.Name} is not an EntityProperty.");
+
+			string entityPropertyName = GetEntityPropertyName(entityPropertyType, value);
+
+			return uiTextHelper.GetUiMessage(entityPropertyName);
+		}
+
+		#region Behind the Scenes
+
+		private static string GetEntityPropertyName(Type entityPropertyType, int value)
+		{
+			var staticProperties = entityPropertyType.GetProperties(
+				System.Reflection.BindingFlags.Public |
+				System.Reflection.BindingFlags.Static |
+				System.Reflection.BindingFlags.FlattenHierarchy
+				);
+
+			foreach (var property in staticProperties)
+			{
+				if (property.PropertyType == typeof(int))
+				{
+					int fieldValue = (int)property.GetValue(null);
+
+					if (fieldValue == value)
+						return property.Name;
+				}
+				else
+				{
+					throw new AbsurdOperationException($"EntityProperty must return int.");
+				}
+			}
+
+			throw new AbsurdOperationException($"value: {value} could not be found in {entityPropertyType.Name}.");
+		}
+
+		#endregion
+
+	}
+}

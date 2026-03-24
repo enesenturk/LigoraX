@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DisableTransitiveProjectReferences>true</DisableTransitiveProjectReferences>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="16.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\basePackages\Base.Caching\Base.Caching.csproj" />
+    <ProjectReference Include="..\..\..\..\basePackages\Base.Constants\Base.Constants.csproj" />
+    <ProjectReference Include="..\..\..\..\basePackages\Base.DataAccess\Base.DataAccess.csproj" />
+    <ProjectReference Include="..\..\..\..\basePackages\Base.DataQuery\Base.DataQuery.csproj" />
+    <ProjectReference Include="..\..\..\..\basePackages\Base.Entity\Base.Entity.csproj" />
+    <ProjectReference Include="..\..\..\..\basePackages\Base.Exceptions\Base.Exceptions.csproj" />
+    <ProjectReference Include="..\..\..\..\basePackages\Base.PrimitiveTypeHelpers\Base.PrimitiveTypeHelpers.csproj" />
+    <ProjectReference Include="..\..\..\..\basePackages\Base.Validation\Base.Validation.csproj" />
+  </ItemGroup>
+
+</Project>

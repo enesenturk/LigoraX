@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DisableTransitiveProjectReferences>true</DisableTransitiveProjectReferences>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\basePackages\Base.Constants\Base.Constants.csproj" />
+    <ProjectReference Include="..\..\..\basePackages\Base.Cookie\Base.Cookie.csproj" />
+    <ProjectReference Include="..\..\..\basePackages\Base.Exceptions\Base.Exceptions.csproj" />
+  </ItemGroup>
+
+</Project>

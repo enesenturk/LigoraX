@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DisableTransitiveProjectReferences>true</DisableTransitiveProjectReferences>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="16.1.1" />
+    <PackageReference Include="MediatR" Version="12.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\basePackages\Base.Entity\Base.Entity.csproj" />
+    <ProjectReference Include="..\..\..\..\..\basePackages\Base.Exceptions\Base.Exceptions.csproj" />
+    <ProjectReference Include="..\..\..\..\..\basePackages\Base.Logging\Base.Logging.csproj" />
+    <ProjectReference Include="..\..\..\..\..\basePackages\Base.PrimitiveTypeHelpers\Base.PrimitiveTypeHelpers.csproj" />
+    <ProjectReference Include="..\..\..\domain\LigoraX.Domain.EntityProperty\LigoraX.Domain.EntityProperty.csproj" />
+    <ProjectReference Include="..\..\..\domain\LigoraX.Domain.Language\LigoraX.Domain.Language.csproj" />
+    <ProjectReference Include="..\..\domainService\LigoraX.DomainServices.Abstractions\LigoraX.DomainServices.Abstractions.csproj" />
+  </ItemGroup>
+
+</Project>
