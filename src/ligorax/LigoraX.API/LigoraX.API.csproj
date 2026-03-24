@@ -29,6 +29,7 @@
     <ProjectReference Include="..\..\basePackages\Base.Logging\Base.Logging.csproj" />
     <ProjectReference Include="..\core\application\application\LigoraX.Application.Utilities\LigoraX.Application.Utilities.csproj" />
     <ProjectReference Include="..\core\application\configuration\LigoraX.Configuration.Registration\LigoraX.Configuration.Registration.csproj" />
+    <ProjectReference Include="..\core\domain\LigoraX.Domain\LigoraX.Domain.csproj" />
     <ProjectReference Include="..\infrastructure\adapterService\LigoraX.AdapterServices\LigoraX.AdapterServices.csproj" />
     <ProjectReference Include="..\infrastructure\authorization\LigoraX.AuthorizationServices\LigoraX.AuthorizationServices.csproj" />
     <ProjectReference Include="..\infrastructure\domainService\LigoraX.DomainServices\LigoraX.DomainServices.csproj" />
