@@ -17,7 +17,7 @@ namespace Base.DataAccess.Repositories.Base.Concrete
 		#region async
 
 		[EntityAuditAspect(OperationType = CrudOperationType.Create)]
-		public async Task<T> AddAsync(T entity, int executingUserId)
+		public async Task<T> AddAsync(T entity, Guid executingUserId)
 		{
 			using (var context = new TContext())
 			{
@@ -30,7 +30,7 @@ namespace Base.DataAccess.Repositories.Base.Concrete
 		}
 
 		[EntityAuditAspect(OperationType = CrudOperationType.Create)]
-		public async Task AddRangeAsync(List<T> entities, int executingUserId)
+		public async Task AddRangeAsync(List<T> entities, Guid executingUserId)
 		{
 			int takeCount = 999;
 
@@ -64,7 +64,7 @@ namespace Base.DataAccess.Repositories.Base.Concrete
 		#region sync
 
 		[EntityAuditAspect(OperationType = CrudOperationType.Create)]
-		public T Add(T entity, int executingUserId)
+		public T Add(T entity, Guid executingUserId)
 		{
 			using (var context = new TContext())
 			{
@@ -75,7 +75,7 @@ namespace Base.DataAccess.Repositories.Base.Concrete
 		}
 
 		[EntityAuditAspect(OperationType = CrudOperationType.Create)]
-		public void AddRange(List<T> entities, int executingUserId)
+		public void AddRange(List<T> entities, Guid executingUserId)
 		{
 			int takeCount = 999;
 
@@ -113,14 +113,14 @@ namespace Base.DataAccess.Repositories.Base.Concrete
 		#region async
 
 		[EntityAuditAspect(OperationType = CrudOperationType.Update)]
-		public async Task<T> UpdateAsync(T entity, int executingUserId, params string[] fields)
+		public async Task<T> UpdateAsync(T entity, Guid executingUserId, params string[] fields)
 		{
 			using (var context = new TContext())
 			{
 				if (fields.Length > 0)
 				{
-					context.Entry(entity).Property(nameof(IMutationEntity.update_user)).IsModified = true;
-					context.Entry(entity).Property(nameof(IMutationEntity.update_date)).IsModified = true;
+					context.Entry(entity).Property(nameof(IMutationEntity.updated_by)).IsModified = true;
+					context.Entry(entity).Property(nameof(IMutationEntity.updated_at)).IsModified = true;
 
 					foreach (string field in fields)
 						context.Entry(entity).Property(field).IsModified = true;
@@ -137,7 +137,7 @@ namespace Base.DataAccess.Repositories.Base.Concrete
 		}
 
 		[EntityAuditAspect(OperationType = CrudOperationType.Update)]
-		public async Task UpdateRangeAsync(List<T> entities, int executingUserId, params string[] fields)
+		public async Task UpdateRangeAsync(List<T> entities, Guid executingUserId, params string[] fields)
 		{
 			int takeCount = 999;
 
@@ -161,8 +161,8 @@ namespace Base.DataAccess.Repositories.Base.Concrete
 
 							if (fields.Length > 0)
 							{
-								updatedEntity.Property(nameof(IMutationEntity.update_user)).IsModified = true;
-								updatedEntity.Property(nameof(IMutationEntity.update_date)).IsModified = true;
+								updatedEntity.Property(nameof(IMutationEntity.updated_by)).IsModified = true;
+								updatedEntity.Property(nameof(IMutationEntity.updated_at)).IsModified = true;
 
 								foreach (string field in fields)
 									context.Entry(entity).Property(field).IsModified = true;
@@ -188,14 +188,14 @@ namespace Base.DataAccess.Repositories.Base.Concrete
 		#region sync
 
 		[EntityAuditAspect(OperationType = CrudOperationType.Update)]
-		public T Update(T entity, int executingUserId, params string[] fields)
+		public T Update(T entity, Guid executingUserId, params string[] fields)
 		{
 			using (var context = new TContext())
 			{
 				if (fields.Length > 0)
 				{
-					context.Entry(entity).Property(nameof(IMutationEntity.update_user)).IsModified = true;
-					context.Entry(entity).Property(nameof(IMutationEntity.update_date)).IsModified = true;
+					context.Entry(entity).Property(nameof(IMutationEntity.updated_by)).IsModified = true;
+					context.Entry(entity).Property(nameof(IMutationEntity.updated_at)).IsModified = true;
 
 					foreach (string field in fields)
 						context.Entry(entity).Property(field).IsModified = true;
@@ -212,7 +212,7 @@ namespace Base.DataAccess.Repositories.Base.Concrete
 		}
 
 		[EntityAuditAspect(OperationType = CrudOperationType.Update)]
-		public void UpdateRange(List<T> entities, int executingUserId, params string[] fields)
+		public void UpdateRange(List<T> entities, Guid executingUserId, params string[] fields)
 		{
 			int takeCount = 999;
 
@@ -234,8 +234,8 @@ namespace Base.DataAccess.Repositories.Base.Concrete
 
 							if (fields.Length > 0)
 							{
-								updatedEntity.Property(nameof(IMutationEntity.update_user)).IsModified = true;
-								updatedEntity.Property(nameof(IMutationEntity.update_date)).IsModified = true;
+								updatedEntity.Property(nameof(IMutationEntity.updated_by)).IsModified = true;
+								updatedEntity.Property(nameof(IMutationEntity.updated_at)).IsModified = true;
 
 								foreach (string field in fields)
 									context.Entry(entity).Property(field).IsModified = true;
@@ -265,7 +265,7 @@ namespace Base.DataAccess.Repositories.Base.Concrete
 		#region async
 
 		[EntityAuditAspect(OperationType = CrudOperationType.Delete)]
-		public async Task HardDeleteAsync(T entity, int executingUserId)
+		public async Task HardDeleteAsync(T entity, Guid executingUserId)
 		{
 			using (var context = new TContext())
 			{
@@ -281,7 +281,7 @@ namespace Base.DataAccess.Repositories.Base.Concrete
 		}
 
 		[EntityAuditAspect(OperationType = CrudOperationType.Delete)]
-		public async Task SoftDeleteAsync(T entity, int executingUserId)
+		public async Task SoftDeleteAsync(T entity, Guid executingUserId)
 		{
 			using (var context = new TContext())
 			{
@@ -295,7 +295,7 @@ namespace Base.DataAccess.Repositories.Base.Concrete
 		}
 
 		[EntityAuditAspect(OperationType = CrudOperationType.Delete)]
-		public async Task SoftDeleteRangeAsync(List<T> entities, int executingUserId)
+		public async Task SoftDeleteRangeAsync(List<T> entities, Guid executingUserId)
 		{
 			using (var context = new TContext())
 			{
@@ -313,7 +313,7 @@ namespace Base.DataAccess.Repositories.Base.Concrete
 		#region sync
 
 		[EntityAuditAspect(OperationType = CrudOperationType.Delete)]
-		public void HardDelete(T entity, int executingUserId)
+		public void HardDelete(T entity, Guid executingUserId)
 		{
 			using (var context = new TContext())
 			{
@@ -329,7 +329,7 @@ namespace Base.DataAccess.Repositories.Base.Concrete
 		}
 
 		[EntityAuditAspect(OperationType = CrudOperationType.Delete)]
-		public void SoftDelete(T entity, int executingUserId)
+		public void SoftDelete(T entity, Guid executingUserId)
 		{
 			using (var context = new TContext())
 			{
@@ -343,7 +343,7 @@ namespace Base.DataAccess.Repositories.Base.Concrete
 		}
 
 		[EntityAuditAspect(OperationType = CrudOperationType.Delete)]
-		public void SoftDeleteRange(List<T> entities, int executingUserId)
+		public void SoftDeleteRange(List<T> entities, Guid executingUserId)
 		{
 			using (var context = new TContext())
 			{

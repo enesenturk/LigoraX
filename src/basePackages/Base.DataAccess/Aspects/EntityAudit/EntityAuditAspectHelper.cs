@@ -9,20 +9,20 @@ namespace Base.DataAccess.Aspects.EntityAudit
 	public class EntityAuditAspectHelper
 	{
 
-		internal static int GetExecutingUserId(object[] args)
+		internal static Guid GetExecutingUserId(object[] args)
 		{
 			foreach (var arg in args)
 			{
-				if (arg is int executingUserId)
+				if (arg is Guid executingUserId)
 				{
-					if (executingUserId is 0)
-						throw new AbsurdOperationException("audit operation executingUserId is required and cannot be 0");
+					if (executingUserId == Guid.Empty)
+						throw new AbsurdOperationException("audit operation executingUserId is required and cannot be empty Guid");
 
 					return executingUserId;
 				}
 			}
 
-			throw new AbsurdOperationException("audit operation executingUserId is required and cannot be 0");
+			throw new AbsurdOperationException("audit operation executingUserId is required and cannot be empty Guid");
 		}
 
 		internal static bool IsArgGenericList(object arg)
@@ -96,21 +96,21 @@ namespace Base.DataAccess.Aspects.EntityAudit
 			return false;
 		}
 
-		internal static void SetAuditFields(ref IMutationEntity entity, int executingUserId, CrudOperationType operationType)
+		internal static void SetAuditFields(ref IMutationEntity entity, Guid executingUserId, CrudOperationType operationType)
 		{
 			if (operationType is CrudOperationType.Create)
 			{
-				entity.create_date = DateTime.Now.ToUniversalTimeZone();
-				entity.create_user = executingUserId;
+				entity.created_at = DateTime.Now.ToUniversalTimeZone();
+				entity.created_by = executingUserId;
 			}
 			else if (operationType is CrudOperationType.Update || operationType is CrudOperationType.Delete)
 			{
-				entity.update_date = DateTime.Now.ToUniversalTimeZone();
-				entity.update_user = executingUserId;
+				entity.updated_at = DateTime.Now.ToUniversalTimeZone();
+				entity.updated_by = executingUserId;
 			}
 		}
 
-		internal static void SetAuditFields(ref List<IMutationEntity> entities, int executingUserId, CrudOperationType operationType)
+		internal static void SetAuditFields(ref List<IMutationEntity> entities, Guid executingUserId, CrudOperationType operationType)
 		{
 			entities.ForEach(entity =>
 			{

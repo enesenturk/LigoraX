@@ -7,25 +7,25 @@ public interface IMutationRepositoryBase<T> : IReadRepositoryBase<T> where T : I
 
 	#region Create
 
-	T Add(T entity, int executingUserId);
+	T Add(T entity, Guid executingUserId);
 
-	void AddRange(List<T> entities, int executingUserId);
+	void AddRange(List<T> entities, Guid executingUserId);
 
 	#endregion
 
 	#region Update
 
-	T Update(T entity, int executingUserId, params string[] fields);
+	T Update(T entity, Guid executingUserId, params string[] fields);
 
-	void UpdateRange(List<T> entities, int executingUserId, params string[] fields);
+	void UpdateRange(List<T> entities, Guid executingUserId, params string[] fields);
 
 	#endregion
 
 	#region Delete
 
-	void HardDelete(T entity, int executingUserId);
-	void SoftDelete(T entity, int executingUserId);
-	void SoftDeleteRange(List<T> entities, int executingUserId);
+	void HardDelete(T entity, Guid executingUserId);
+	void SoftDelete(T entity, Guid executingUserId);
+	void SoftDeleteRange(List<T> entities, Guid executingUserId);
 
 	#endregion
 

@@ -28,7 +28,7 @@ namespace Base.DataAccess.Aspects.EntityAudit
 			if (args.Length is 0)
 				throw new AbsurdOperationException("audit operation arguments must contain entity and executingUserId.");
 
-			int executingUserId = EntityAuditAspectHelper.GetExecutingUserId(args);
+			Guid executingUserId = EntityAuditAspectHelper.GetExecutingUserId(args);
 
 			bool isBulkOperation = EntityAuditAspectHelper.IsArgGenericList(args[0]);
 

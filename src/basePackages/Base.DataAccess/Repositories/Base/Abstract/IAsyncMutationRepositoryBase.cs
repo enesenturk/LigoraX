@@ -7,25 +7,25 @@ public interface IAsyncMutationRepositoryBase<T> : IAsyncReadRepositoryBase<T> w
 
 	#region Create
 
-	Task<T> AddAsync(T entity, int executingUserId);
+	Task<T> AddAsync(T entity, Guid executingUserId);
 
-	Task AddRangeAsync(List<T> entities, int executingUserId);
+	Task AddRangeAsync(List<T> entities, Guid executingUserId);
 
 	#endregion
 
 	#region Update
 
-	Task<T> UpdateAsync(T entity, int executingUserId, params string[] fields);
+	Task<T> UpdateAsync(T entity, Guid executingUserId, params string[] fields);
 
-	Task UpdateRangeAsync(List<T> entities, int executingUserId, params string[] fields);
+	Task UpdateRangeAsync(List<T> entities, Guid executingUserId, params string[] fields);
 
 	#endregion
 
 	#region Delete
 
-	Task HardDeleteAsync(T entity, int executingUserId);
-	Task SoftDeleteAsync(T entity, int executingUserId);
-	Task SoftDeleteRangeAsync(List<T> entities, int executingUserId);
+	Task HardDeleteAsync(T entity, Guid executingUserId);
+	Task SoftDeleteAsync(T entity, Guid executingUserId);
+	Task SoftDeleteRangeAsync(List<T> entities, Guid executingUserId);
 
 	#endregion
 
