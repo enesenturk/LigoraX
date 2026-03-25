@@ -1,4 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using LigoraX.DomainServices.Abstractions.Modules.System.Property.Services;
+using LigoraX.DomainServices.Abstractions.Modules.User.Services;
+using LigoraX.DomainServices.Modules.System.Property;
+using LigoraX.DomainServices.Modules.User;
+using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
 namespace LigoraX.DomainServices
@@ -17,7 +21,19 @@ namespace LigoraX.DomainServices
 				cfg.AddMaps(assembly);
 			});
 
+			services.AddServices();
 		}
+
+		#region Behind the Scenes
+
+		private static void AddServices(this IServiceCollection services)
+		{
+			services.AddScoped<ISystemPropertyService, SystemPropertyService>();
+
+			services.AddScoped<IUserService, UserService>();
+		}
+
+		#endregion
 
 	}
 }

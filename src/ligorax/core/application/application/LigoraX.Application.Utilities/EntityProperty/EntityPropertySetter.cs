@@ -70,7 +70,7 @@ namespace LigoraX.Application.Utilities.EntityProperty
 					continue;
 
 				string propertyTypeName = classType.Name;
-				int propertyTypeId = Convert.ToInt32(typeof(SystemPropertyType).GetProperty(propertyTypeName).GetValue(null, null));
+				Guid propertyTypeId = (Guid)typeof(SystemPropertyType).GetProperty(propertyTypeName).GetValue(null, null);
 
 				PropertyInfo[] classProperties = classType.GetProperties();
 

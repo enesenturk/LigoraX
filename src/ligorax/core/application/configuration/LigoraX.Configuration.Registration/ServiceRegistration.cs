@@ -12,6 +12,8 @@ namespace LigoraX.Configuration.Registration
 			{
 				typeof(DataBaseSettings),
 				typeof(EmailSettings),
+				typeof(JwtSettings),
+				typeof(ProjectSettings),
 			});
 
 			return builder;

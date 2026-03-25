@@ -23,7 +23,7 @@
 
   <ItemGroup>
     <EmbeddedResource Update="Resources\uiText.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>uiText.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>

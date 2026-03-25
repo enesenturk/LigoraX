@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -8,5 +8,9 @@
   <PropertyGroup>
     <DisableTransitiveProjectReferences>true</DisableTransitiveProjectReferences>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\domain\LigoraX.Domain\LigoraX.Domain.csproj" />
+  </ItemGroup>
 
 </Project>

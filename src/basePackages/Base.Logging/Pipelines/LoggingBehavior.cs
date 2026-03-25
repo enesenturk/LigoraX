@@ -93,7 +93,12 @@ namespace Base.Logging.Pipelines
 				)
 				return "?";
 
-			var claim = _httpContextAccessor.HttpContext.User.Claims.ToArray()[3];
+			var claims = _httpContextAccessor.HttpContext.User.Claims.ToArray();
+
+			if (claims.Length == 0)
+				return "?";
+
+			var claim = claims[3];
 
 			if (claim is null)
 				return "?";

@@ -98,4 +98,33 @@
 	<resheader name="writer">
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
+
+	<!-- General -->
+	<data name="Not_Found" xml:space="preserve">
+		<value>İstenen kaynak bulunamadı.</value>
+	</data>
+	<data name="Error_Occurred_Contact_Admin" xml:space="preserve">
+		<value>Bir hata oluştu. Lütfen sistem yöneticisiyle iletişime geçin.</value>
+	</data>
+
+	<!-- User -->
+	<data name="Username_Already_Taken" xml:space="preserve">
+		<value>Bu kullanıcı adı zaten kullanılıyor.</value>
+	</data>
+	<data name="Email_Already_Registered" xml:space="preserve">
+		<value>Bu e-posta adresi zaten kayıtlı.</value>
+	</data>
+	<data name="Register_Success" xml:space="preserve">
+		<value>Kayıt işlemi başarıyla tamamlandı.</value>
+	</data>
+	<data name="Invalid_Credentials" xml:space="preserve">
+		<value>Kullanıcı adı/e-posta veya şifre hatalı.</value>
+	</data>
+	<data name="Account_Inactive" xml:space="preserve">
+		<value>Hesabınız pasif durumda. Lütfen destek ekibiyle iletişime geçin.</value>
+	</data>
+	<data name="Login_Success" xml:space="preserve">
+		<value>Giriş başarılı.</value>
+	</data>
+
 </root>

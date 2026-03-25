@@ -20,12 +20,6 @@ namespace Base.DataAccess.Repositories.Base.Abstract
 		Task<T> GetAsync(
 			Expression<Func<T, bool>> predicate,
 			Func<IQueryable<T>, IIncludableQueryable<T, object>> include = null,
-			bool excludeDeleteds = true
-			);
-
-		Task<T> GetOrderByAsync(
-			Expression<Func<T, bool>> predicate,
-			Func<IQueryable<T>, IIncludableQueryable<T, object>> include = null,
 			Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
 			bool excludeDeleteds = true
 			);

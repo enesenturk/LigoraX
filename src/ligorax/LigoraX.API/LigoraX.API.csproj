@@ -11,6 +11,8 @@
 
   <ItemGroup>
     <PackageReference Include="AspectCore.Extensions.DependencyInjection" Version="2.4.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.9.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="8.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.10">
       <PrivateAssets>all</PrivateAssets>
@@ -28,6 +30,7 @@
     <ProjectReference Include="..\..\basePackages\Base.Factory\Base.Factory.csproj" />
     <ProjectReference Include="..\..\basePackages\Base.Logging\Base.Logging.csproj" />
     <ProjectReference Include="..\core\application\application\LigoraX.Application.Utilities\LigoraX.Application.Utilities.csproj" />
+    <ProjectReference Include="..\core\application\configuration\LigoraX.Configuration\LigoraX.Configuration.csproj" />
     <ProjectReference Include="..\core\application\configuration\LigoraX.Configuration.Registration\LigoraX.Configuration.Registration.csproj" />
     <ProjectReference Include="..\core\domain\LigoraX.Domain\LigoraX.Domain.csproj" />
     <ProjectReference Include="..\infrastructure\adapterService\LigoraX.AdapterServices\LigoraX.AdapterServices.csproj" />
@@ -37,6 +40,7 @@
     <ProjectReference Include="..\infrastructure\repository\LigoraX.Repositories\LigoraX.Repositories.csproj" />
     <ProjectReference Include="..\presentation\LigoraX.Presentation.Constants\LigoraX.Presentation.Constants.csproj" />
     <ProjectReference Include="..\presentation\LigoraX.Presentation.Formatters\LigoraX.Presentation.Formatters.csproj" />
+    <ProjectReference Include="..\core\application\application\LigoraX.Application.UseCases\LigoraX.Application.UseCases.csproj" />
     <ProjectReference Include="..\presentation\LigoraX.Presentation\LigoraX.Presentation.csproj" />
   </ItemGroup>
 

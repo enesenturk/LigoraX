@@ -364,8 +364,6 @@ namespace LigoraX.Persistence.Contexts
 
 				entity.ToTable("t_user");
 
-				entity.HasIndex(e => e.email, "idx_t_user_email").HasFilter("(is_deleted = false)");
-
 				entity.HasIndex(e => e.username, "idx_t_user_username").HasFilter("(is_deleted = false)");
 
 				entity.HasIndex(e => e.email, "t_user_email_key").IsUnique();

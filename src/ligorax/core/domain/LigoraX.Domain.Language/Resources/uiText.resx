@@ -98,4 +98,33 @@
 	<resheader name="writer">
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
+
+	<!-- General -->
+	<data name="Not_Found" xml:space="preserve">
+		<value>The requested resource was not found.</value>
+	</data>
+	<data name="Error_Occurred_Contact_Admin" xml:space="preserve">
+		<value>An error occurred. Please contact the system administrator.</value>
+	</data>
+
+	<!-- User -->
+	<data name="Username_Already_Taken" xml:space="preserve">
+		<value>This username is already taken.</value>
+	</data>
+	<data name="Email_Already_Registered" xml:space="preserve">
+		<value>This email address is already registered.</value>
+	</data>
+	<data name="Register_Success" xml:space="preserve">
+		<value>Registration successful.</value>
+	</data>
+	<data name="Invalid_Credentials" xml:space="preserve">
+		<value>Invalid username/email or password.</value>
+	</data>
+	<data name="Account_Inactive" xml:space="preserve">
+		<value>Your account is inactive. Please contact support.</value>
+	</data>
+	<data name="Login_Success" xml:space="preserve">
+		<value>Login successful.</value>
+	</data>
+
 </root>

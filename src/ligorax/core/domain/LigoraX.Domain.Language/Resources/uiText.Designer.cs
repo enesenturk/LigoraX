@@ -22,7 +22,7 @@ namespace LigoraX.Domain.Language.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class uiText {
+    public class uiText {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace LigoraX.Domain.Language.Resources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LigoraX.Domain.Language.Resources.uiText", typeof(uiText).Assembly);
@@ -51,12 +51,84 @@ namespace LigoraX.Domain.Language.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your account is inactive. Please contact support..
+        /// </summary>
+        public static string Account_Inactive {
+            get {
+                return ResourceManager.GetString("Account_Inactive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This email address is already registered..
+        /// </summary>
+        public static string Email_Already_Registered {
+            get {
+                return ResourceManager.GetString("Email_Already_Registered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An error occurred. Please contact the system administrator..
+        /// </summary>
+        public static string Error_Occurred_Contact_Admin {
+            get {
+                return ResourceManager.GetString("Error_Occurred_Contact_Admin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid username/email or password..
+        /// </summary>
+        public static string Invalid_Credentials {
+            get {
+                return ResourceManager.GetString("Invalid_Credentials", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login successful..
+        /// </summary>
+        public static string Login_Success {
+            get {
+                return ResourceManager.GetString("Login_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The requested resource was not found..
+        /// </summary>
+        public static string Not_Found {
+            get {
+                return ResourceManager.GetString("Not_Found", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Registration successful..
+        /// </summary>
+        public static string Register_Success {
+            get {
+                return ResourceManager.GetString("Register_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This username is already taken..
+        /// </summary>
+        public static string Username_Already_Taken {
+            get {
+                return ResourceManager.GetString("Username_Already_Taken", resourceCulture);
             }
         }
     }

@@ -68,6 +68,42 @@ namespace Base.Security.Services
 			}
 		}
 
+		#region Hash
+
+		public static string Hash(string plainText)
+		{
+			byte[] salt = RandomNumberGenerator.GetBytes(16);
+			byte[] hash = Rfc2898DeriveBytes.Pbkdf2(
+				Encoding.UTF8.GetBytes(plainText),
+				salt,
+				iterations: 100000,
+				hashAlgorithm: HashAlgorithmName.SHA256,
+				outputLength: 32);
+
+			return $"{Convert.ToBase64String(salt)}:{Convert.ToBase64String(hash)}";
+		}
+
+		public static bool VerifyHash(string plainText, string hashedText)
+		{
+			var parts = hashedText.Split(':');
+			if (parts.Length != 2)
+				return false;
+
+			byte[] salt = Convert.FromBase64String(parts[0]);
+			byte[] expectedHash = Convert.FromBase64String(parts[1]);
+
+			byte[] actualHash = Rfc2898DeriveBytes.Pbkdf2(
+				Encoding.UTF8.GetBytes(plainText),
+				salt,
+				iterations: 100000,
+				hashAlgorithm: HashAlgorithmName.SHA256,
+				outputLength: 32);
+
+			return CryptographicOperations.FixedTimeEquals(actualHash, expectedHash);
+		}
+
+		#endregion
+
 		#region Behind the Scenes
 
 		private static byte[] GetKeyBytes(string key)

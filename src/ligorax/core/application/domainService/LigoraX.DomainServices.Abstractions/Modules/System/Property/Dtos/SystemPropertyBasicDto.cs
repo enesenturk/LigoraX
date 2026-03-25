@@ -2,8 +2,8 @@
 {
 	public class SystemPropertyBasicDto
 	{
-		public int Id { get; set; }
-		public int TypeId { get; set; }
+		public Guid Id { get; set; }
+		public Guid TypeId { get; set; }
 		public string LanguageKey { get; set; }
 	}
 }

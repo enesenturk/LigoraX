@@ -9,7 +9,7 @@ namespace LigoraX.DomainServices.Abstractions.Modules.System.Property.Services
 
 		List<PropertyTypeBasicDto> GetPropertyTypes();
 		List<SystemPropertyBasicDto> GetSystemProperties();
-		List<SystemPropertyBasicDto> GetSystemPropertiesOfType(int typeId);
+		List<SystemPropertyBasicDto> GetSystemPropertiesOfType(Guid typeId);
 
 		#endregion
 

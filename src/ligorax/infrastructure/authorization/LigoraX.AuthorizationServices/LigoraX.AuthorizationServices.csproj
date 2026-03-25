@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="16.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.10" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,6 +21,7 @@
     <ProjectReference Include="..\..\..\..\basePackages\Base.Exceptions\Base.Exceptions.csproj" />
     <ProjectReference Include="..\..\..\..\basePackages\Base.PrimitiveTypeHelpers\Base.PrimitiveTypeHelpers.csproj" />
     <ProjectReference Include="..\..\..\core\application\authorization\LigoraX.AuthorizationServices.Abstractions\LigoraX.AuthorizationServices.Abstractions.csproj" />
+    <ProjectReference Include="..\..\..\core\application\configuration\LigoraX.Configuration\LigoraX.Configuration.csproj" />
   </ItemGroup>
 
 </Project>

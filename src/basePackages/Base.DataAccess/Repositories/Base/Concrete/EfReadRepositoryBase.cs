@@ -40,25 +40,6 @@ namespace Base.DataAccess.Repositories.Base.Concrete
 
 		public async Task<T> GetAsync(Expression<Func<T, bool>> predicate,
 			Func<IQueryable<T>, IIncludableQueryable<T, object>> include = null,
-			bool excludeDeleteds = true
-			)
-		{
-			using (var context = new TContext())
-			{
-				IQueryable<T> queryable = context.Set<T>();
-
-				if (excludeDeleteds)
-					queryable = queryable.ExcludeDeleteds();
-
-				if (include != null)
-					queryable = include(queryable);
-
-				return await queryable.FirstOrDefaultAsync(predicate);
-			}
-		}
-
-		public async Task<T> GetOrderByAsync(Expression<Func<T, bool>> predicate,
-			Func<IQueryable<T>, IIncludableQueryable<T, object>> include = null,
 			Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
 			bool excludeDeleteds = true
 			)
@@ -248,27 +229,7 @@ namespace Base.DataAccess.Repositories.Base.Concrete
 			}
 		}
 
-		public T Get(
-			Expression<Func<T, bool>> predicate,
-			Func<IQueryable<T>, IIncludableQueryable<T, object>> include = null,
-			bool excludeDeleteds = true
-			)
-		{
-			using (var context = new TContext())
-			{
-				IQueryable<T> queryable = context.Set<T>();
-
-				if (excludeDeleteds)
-					queryable = queryable.ExcludeDeleteds();
-
-				if (include != null)
-					queryable = include(queryable);
-
-				return queryable.FirstOrDefault(predicate);
-			}
-		}
-
-		public T GetOrderBy<K>(
+		public T Get<K>(
 			Expression<Func<T, bool>> predicate,
 			Expression<Func<T, K>> orderBy,
 			Func<IQueryable<T>, IIncludableQueryable<T, object>> include = null,

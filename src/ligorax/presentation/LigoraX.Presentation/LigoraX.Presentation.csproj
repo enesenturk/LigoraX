@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -15,15 +15,21 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="16.1.1" />
+    <PackageReference Include="MediatR" Version="12.4.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Modules\User\Mappings\" />
-    <Folder Include="Modules\User\Models\" />
-  </ItemGroup>
-
-  <ItemGroup>
-
+    <ProjectReference Include="..\..\..\basePackages\Base.Dto\Base.Dto.csproj" />
+    <ProjectReference Include="..\..\..\basePackages\Base.Exceptions\Base.Exceptions.csproj" />
+    <ProjectReference Include="..\..\..\basePackages\Base.Logging\Base.Logging.csproj" />
+    <ProjectReference Include="..\..\..\basePackages\Base.PrimitiveTypeHelpers\Base.PrimitiveTypeHelpers.csproj" />
+    <ProjectReference Include="..\..\..\basePackages\Base.Security\Base.Security.csproj" />
+    <ProjectReference Include="..\..\..\basePackages\Base.Validation\Base.Validation.csproj" />
+    <ProjectReference Include="..\..\core\application\application\LigoraX.Application.UseCases\LigoraX.Application.UseCases.csproj" />
+    <ProjectReference Include="..\..\core\application\authorization\LigoraX.Authorization\LigoraX.Authorization.csproj" />
+    <ProjectReference Include="..\..\core\application\configuration\LigoraX.Configuration\LigoraX.Configuration.csproj" />
+    <ProjectReference Include="..\..\core\domain\LigoraX.Domain.Language\LigoraX.Domain.Language.csproj" />
+    <ProjectReference Include="..\LigoraX.Presentation.Constants\LigoraX.Presentation.Constants.csproj" />
   </ItemGroup>
 
 </Project>

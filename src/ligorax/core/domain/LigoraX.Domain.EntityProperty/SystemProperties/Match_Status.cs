@@ -1,11 +1,11 @@
-﻿namespace LigoraX.Domain.EntityProperty.SystemProperties
+namespace LigoraX.Domain.EntityProperty.SystemProperties
 {
 	public class Match_Status
 	{
-		public static int Cancelled { get; set; }
-		public static int Finished { get; set; }
-		public static int Live { get; set; }
-		public static int Postponed { get; set; }
-		public static int Scheduled { get; set; }
+		public static Guid Cancelled { get; set; }
+		public static Guid Finished { get; set; }
+		public static Guid Live { get; set; }
+		public static Guid Postponed { get; set; }
+		public static Guid Scheduled { get; set; }
 	}
 }

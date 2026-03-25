@@ -1,4 +1,3 @@
-﻿using LigoraX.Presentation.Modules.User;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
@@ -8,12 +7,11 @@ namespace LigoraX.Presentation
 	{
 		public static IServiceCollection AddPresentationServices(this IServiceCollection services)
 		{
-			var assembly = Assembly.GetExecutingAssembly();
+			Assembly assembly = Assembly.GetExecutingAssembly();
 
 			services.AddAutoMapper(cfg =>
 			{
 				cfg.ReplaceMemberName("_", "");
-
 				cfg.AddMaps(assembly);
 			});
 
@@ -26,7 +24,7 @@ namespace LigoraX.Presentation
 
 		private static void AddControllerInternals(this IServiceCollection services)
 		{
-			services.AddScoped<UserControllerInternal>();
+
 		}
 
 		#endregion

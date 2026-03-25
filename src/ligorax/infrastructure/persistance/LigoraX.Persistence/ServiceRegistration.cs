@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using LigoraX.Configuration.AppSettings;
+using LigoraX.Persistence.Contexts;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace LigoraX.Persistence
 {
@@ -6,7 +8,7 @@ namespace LigoraX.Persistence
 	{
 		public static IServiceCollection AddPersistenceServices(this IServiceCollection services)
 		{
-			//CMS_DEVContext.connectionString = DataBaseSettings.ConnectionString;
+			ligoraxContext.connectionString = DataBaseSettings.ConnectionString;
 
 			return services;
 		}

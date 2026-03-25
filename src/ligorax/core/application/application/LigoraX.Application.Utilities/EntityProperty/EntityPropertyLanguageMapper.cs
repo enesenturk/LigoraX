@@ -1,13 +1,14 @@
-﻿using Base.Exceptions.ExceptionModels;
+using Base.Exceptions.ExceptionModels;
 using LigoraX.Domain.EntityProperty.SystemProperties;
 using LigoraX.Domain.Language.Helpers;
+using System.Reflection;
 
 namespace LigoraX.Application.Utilities.EntityProperty
 {
 	public class EntityPropertyLanguageMapper
 	{
 
-		public static string GetEntityPropertyUiMessage<T>(int value)
+		public static string GetEntityPropertyUiMessage<T>(Guid value)
 		{
 			Type entityPropertyType = typeof(T);
 
@@ -23,26 +24,26 @@ namespace LigoraX.Application.Utilities.EntityProperty
 
 		#region Behind the Scenes
 
-		private static string GetEntityPropertyName(Type entityPropertyType, int value)
+		private static string GetEntityPropertyName(Type entityPropertyType, Guid value)
 		{
-			var staticProperties = entityPropertyType.GetProperties(
-				System.Reflection.BindingFlags.Public |
-				System.Reflection.BindingFlags.Static |
-				System.Reflection.BindingFlags.FlattenHierarchy
+			PropertyInfo[] staticProperties = entityPropertyType.GetProperties(
+				BindingFlags.Public |
+				BindingFlags.Static |
+				BindingFlags.FlattenHierarchy
 				);
 
-			foreach (var property in staticProperties)
+			foreach (PropertyInfo property in staticProperties)
 			{
-				if (property.PropertyType == typeof(int))
+				if (property.PropertyType == typeof(Guid))
 				{
-					int fieldValue = (int)property.GetValue(null);
+					Guid fieldValue = (Guid)property.GetValue(null);
 
 					if (fieldValue == value)
 						return property.Name;
 				}
 				else
 				{
-					throw new AbsurdOperationException($"EntityProperty must return int.");
+					throw new AbsurdOperationException($"EntityProperty must return Guid.");
 				}
 			}
 

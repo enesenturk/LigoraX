@@ -17,13 +17,7 @@ namespace Base.DataAccess.Repositories.Base.Abstract
 			bool excludeDeleteds = true
 			);
 
-		T Get(
-			Expression<Func<T, bool>> predicate,
-			Func<IQueryable<T>, IIncludableQueryable<T, object>> include = null,
-			bool excludeDeleteds = true
-			);
-
-		public T GetOrderBy<K>(
+		T Get<K>(
 			Expression<Func<T, bool>> predicate,
 			Expression<Func<T, K>> orderBy,
 			Func<IQueryable<T>, IIncludableQueryable<T, object>> include = null,
