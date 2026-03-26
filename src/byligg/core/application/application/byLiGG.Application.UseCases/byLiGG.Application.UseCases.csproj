@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DisableTransitiveProjectReferences>true</DisableTransitiveProjectReferences>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="16.1.1" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.10.0" />
+    <PackageReference Include="MediatR" Version="12.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\basePackages\Base.DataAccess\Base.DataAccess.csproj" />
+    <ProjectReference Include="..\..\..\..\..\basePackages\Base.Entity\Base.Entity.csproj" />
+    <ProjectReference Include="..\..\..\..\..\basePackages\Base.PrimitiveTypeHelpers\Base.PrimitiveTypeHelpers.csproj" />
+    <ProjectReference Include="..\..\..\..\..\basePackages\Base.Validation\Base.Validation.csproj" />
+    <ProjectReference Include="..\..\..\domain\byLiGG.Domain.EntityProperty\byLiGG.Domain.EntityProperty.csproj" />
+    <ProjectReference Include="..\..\authorization\byLiGG.Authorization\byLiGG.Authorization.csproj" />
+    <ProjectReference Include="..\byLiGG.Application.Constants\byLiGG.Application.Constants.csproj" />
+    <ProjectReference Include="..\byLiGG.Application.Utilities\byLiGG.Application.Utilities.csproj" />
+    <ProjectReference Include="..\..\authorization\byLiGG.AuthorizationServices.Abstractions\byLiGG.AuthorizationServices.Abstractions.csproj" />
+    <ProjectReference Include="..\..\domainService\byLiGG.DomainServices.Abstractions\byLiGG.DomainServices.Abstractions.csproj" />
+    <ProjectReference Include="..\..\repository\byLiGG.Repositories.Abstractions\byLiGG.Repositories.Abstractions.csproj" />
+    <ProjectReference Include="..\..\..\domain\byLiGG.Domain\byLiGG.Domain.csproj" />
+    <ProjectReference Include="..\..\..\domain\byLiGG.Domain.Language\byLiGG.Domain.Language.csproj" />
+    <ProjectReference Include="..\..\..\..\..\basePackages\Base.Exceptions\Base.Exceptions.csproj" />
+    <ProjectReference Include="..\..\..\..\..\basePackages\Base.Security\Base.Security.csproj" />
+  </ItemGroup>
+
+</Project>

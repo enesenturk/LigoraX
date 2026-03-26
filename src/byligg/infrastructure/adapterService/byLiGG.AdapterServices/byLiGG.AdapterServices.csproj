@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DisableTransitiveProjectReferences>true</DisableTransitiveProjectReferences>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\application\adapterService\byLiGG.AdapterServices.Abstractions\byLiGG.AdapterServices.Abstractions.csproj" />
+    <ProjectReference Include="..\..\..\core\application\configuration\byLiGG.Configuration\byLiGG.Configuration.csproj" />
+  </ItemGroup>
+
+</Project>

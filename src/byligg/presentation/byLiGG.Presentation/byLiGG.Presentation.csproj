@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DisableTransitiveProjectReferences>true</DisableTransitiveProjectReferences>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="16.1.1" />
+    <PackageReference Include="MediatR" Version="12.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\basePackages\Base.Dto\Base.Dto.csproj" />
+    <ProjectReference Include="..\..\..\basePackages\Base.Exceptions\Base.Exceptions.csproj" />
+    <ProjectReference Include="..\..\..\basePackages\Base.Logging\Base.Logging.csproj" />
+    <ProjectReference Include="..\..\..\basePackages\Base.PrimitiveTypeHelpers\Base.PrimitiveTypeHelpers.csproj" />
+    <ProjectReference Include="..\..\..\basePackages\Base.Security\Base.Security.csproj" />
+    <ProjectReference Include="..\..\..\basePackages\Base.Validation\Base.Validation.csproj" />
+    <ProjectReference Include="..\..\core\application\application\byLiGG.Application.UseCases\byLiGG.Application.UseCases.csproj" />
+    <ProjectReference Include="..\..\core\application\authorization\byLiGG.Authorization\byLiGG.Authorization.csproj" />
+    <ProjectReference Include="..\..\core\application\configuration\byLiGG.Configuration\byLiGG.Configuration.csproj" />
+    <ProjectReference Include="..\..\core\domain\byLiGG.Domain.Language\byLiGG.Domain.Language.csproj" />
+    <ProjectReference Include="..\byLiGG.Presentation.Constants\byLiGG.Presentation.Constants.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DisableTransitiveProjectReferences>true</DisableTransitiveProjectReferences>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AspectCore.Extensions.DependencyInjection" Version="2.4.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.9.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="8.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <TreatAsUsed>true</TreatAsUsed>
+    </PackageReference>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.10">
+      <TreatAsUsed>true</TreatAsUsed>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\basePackages\Base.Caching\Base.Caching.csproj" />
+    <ProjectReference Include="..\..\basePackages\Base.Cookie\Base.Cookie.csproj" />
+    <ProjectReference Include="..\..\basePackages\Base.Factory\Base.Factory.csproj" />
+    <ProjectReference Include="..\..\basePackages\Base.Logging\Base.Logging.csproj" />
+    <ProjectReference Include="..\core\application\application\byLiGG.Application.Utilities\byLiGG.Application.Utilities.csproj" />
+    <ProjectReference Include="..\core\application\configuration\byLiGG.Configuration\byLiGG.Configuration.csproj" />
+    <ProjectReference Include="..\core\application\configuration\byLiGG.Configuration.Registration\byLiGG.Configuration.Registration.csproj" />
+    <ProjectReference Include="..\core\domain\byLiGG.Domain\byLiGG.Domain.csproj" />
+    <ProjectReference Include="..\infrastructure\adapterService\byLiGG.AdapterServices\byLiGG.AdapterServices.csproj" />
+    <ProjectReference Include="..\infrastructure\authorization\byLiGG.AuthorizationServices\byLiGG.AuthorizationServices.csproj" />
+    <ProjectReference Include="..\infrastructure\domainService\byLiGG.DomainServices\byLiGG.DomainServices.csproj" />
+    <ProjectReference Include="..\infrastructure\persistance\byLiGG.Persistence\byLiGG.Persistence.csproj" />
+    <ProjectReference Include="..\infrastructure\repository\byLiGG.Repositories\byLiGG.Repositories.csproj" />
+    <ProjectReference Include="..\presentation\byLiGG.Presentation.Constants\byLiGG.Presentation.Constants.csproj" />
+    <ProjectReference Include="..\presentation\byLiGG.Presentation.Formatters\byLiGG.Presentation.Formatters.csproj" />
+    <ProjectReference Include="..\core\application\application\byLiGG.Application.UseCases\byLiGG.Application.UseCases.csproj" />
+    <ProjectReference Include="..\presentation\byLiGG.Presentation\byLiGG.Presentation.csproj" />
+  </ItemGroup>
+
+</Project>

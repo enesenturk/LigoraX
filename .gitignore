@@ -1,7 +1,7 @@
-/.vs
+﻿/.vs
 
-/src/ligorax/LigoraX.API/appsettings.Development.json
-/src/ligorax/LigoraX.API/appsettings.json
+/src/byligg/byLiGG.API/appsettings.Development.json
+/src/byligg/byLiGG.API/appsettings.json
 
 **/bin/
 **/obj/
