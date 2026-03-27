@@ -1,4 +1,5 @@
-﻿using byLiGG.Domain.Language.Helpers;
+﻿using byLiGG.Configuration.AppSettings;
+using byLiGG.Domain.Language.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
@@ -9,20 +10,18 @@ namespace byLiGG.Presentation.Filters
 
 		public override void OnActionExecuting(ActionExecutingContext filterContext)
 		{
-			string actionName = filterContext.RouteData.Values["action"].ToString();
-			string controllerName = filterContext.RouteData.Values["controller"].ToString();
-
-			bool skipTracking = GetDoNotTrack(controllerName, actionName);
-
-			if (skipTracking)
-				return;
-
-			if (!IsCorrectLanguage(filterContext))
+			if (!IsCorrectApiKey(filterContext) || !IsCorrectLanguage(filterContext))
 			{
 				filterContext.Result = new UnauthorizedResult();
 
 				return;
 			}
+
+			string actionName = filterContext.RouteData.Values["action"].ToString();
+			string controllerName = filterContext.RouteData.Values["controller"].ToString();
+
+			if (IsAuthenticationFree(controllerName, actionName))
+				return;
 
 			if (!filterContext.HttpContext.User.Identity.IsAuthenticated)
 			{
@@ -34,6 +33,13 @@ namespace byLiGG.Presentation.Filters
 
 		#region Behind the Scenes
 
+		private bool IsCorrectApiKey(ActionExecutingContext filterContext)
+		{
+			string receivedKey = filterContext.HttpContext.Request.Headers["X-Api-Key"].FirstOrDefault();
+
+			return !string.IsNullOrEmpty(receivedKey) && receivedKey == ProjectSettings.ClientApiKey;
+		}
+
 		private bool IsCorrectLanguage(ActionExecutingContext filterContext)
 		{
 			string language = filterContext.HttpContext.Request.Headers["Accept-Language"].FirstOrDefault();
@@ -41,7 +47,7 @@ namespace byLiGG.Presentation.Filters
 			return !string.IsNullOrEmpty(language) && LanguageHelper.IsSupportedLanguage(language);
 		}
 
-		private bool GetDoNotTrack(string controllerName, string actionName)
+		private bool IsAuthenticationFree(string controllerName, string actionName)
 		{
 			return
 				controllerName == "User" && actionName == "Register" ||

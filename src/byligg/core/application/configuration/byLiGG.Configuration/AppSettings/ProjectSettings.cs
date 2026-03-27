@@ -2,9 +2,9 @@
 {
 	public class ProjectSettings
 	{
+		public static string ClientApiKey { get; set; }
 
 		public static bool IsDevSystem { get; set; }
-		public static bool ShowException { get; set; }
-
+		public static bool IsShowException { get; set; }
 	}
 }

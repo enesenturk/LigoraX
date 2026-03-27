@@ -1,9 +1,9 @@
 ﻿using Base.Dto.BaseResponse;
 using Base.Exceptions.ExceptionModels;
 using Base.Logging.Loggers;
-using FluentValidation;
 using byLiGG.Configuration.AppSettings;
 using byLiGG.Domain.Language.Resources;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -105,7 +105,7 @@ namespace byLiGG.Presentation.Filters
 				ValidationException validationException = (ValidationException)filterContext.Exception;
 				exceptionMessage = string.Join("\n", validationException.Errors.Select(e => e.ErrorMessage));
 			}
-			else if (ProjectSettings.ShowException)
+			else if (ProjectSettings.IsShowException)
 			{
 				Exception innerException = filterContext.Exception.InnerException;
 				string innerExceptionMessage = innerException != null ? innerException.Message : "";
@@ -134,7 +134,7 @@ namespace byLiGG.Presentation.Filters
 
 			return new BaseResponseDto
 			{
-				Message = exceptionMessage.Replace("\n", "</br>"),
+				Message = exceptionMessage,
 				Type = responseType
 			};
 		}
